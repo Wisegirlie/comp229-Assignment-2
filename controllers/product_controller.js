@@ -1,4 +1,4 @@
-const Product = require('../models/Product');
+const Product = require('../models/product');
 
 // Get all products
 exports.getAllProducts = async (req, res) => {
@@ -6,7 +6,7 @@ exports.getAllProducts = async (req, res) => {
         const products = await Product.find();
         res.json(products);
     } catch (err) {
-        res.status(500).json({ error: "Error retrieving all products." });
+        res.status(500).json({ error: "Error retrieving all products:" + err.message });
     }
 };
 
