@@ -26,9 +26,9 @@ exports.createProduct = async (req, res) => {
     try {
         const product = new Product(req.body);
         const newProduct = await product.save();
-        res.json(result)
+        res.status(201).json(newProduct);
     } catch (err) {
-        res.status(400).json({ error: "Error saving new product." });
+        res.status(400).json({ error: "Error saving new product: " + err.message });
     }
 };
 
@@ -39,7 +39,7 @@ exports.updateProduct = async (req, res) => {
         if (!updatedProduct) return res.status(404).json({ message: "Product not found." });
         res.json(updatedProduct);
     } catch (err) {
-        res.status(400).json({ error: "Error updating product." });
+        res.status(400).json({ error: "Error updating product: " + err.message });
     }
 };
 
