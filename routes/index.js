@@ -8,12 +8,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'DressStore' });
 });
 
-router.get('/products', product_Controller.getAllProducts);
-router.get('/products/:id', product_Controller.getProductById);
-router.post('/products', product_Controller.createProduct);
-router.put('/products/:id', product_Controller.updateProduct);
-router.delete('/products/:id', product_Controller.deleteProductById);
-router.delete('/products', product_Controller.deleteAllProducts);
-router.get('/search', product_Controller.findProductsByName);
+router.get('/api/products', product_Controller.getAllProducts);
+router.get('/api/products/:id', product_Controller.getProductById);
+router.post('/api/products', product_Controller.createProduct);
+router.put('/api/products/:id', product_Controller.updateProduct);
+router.delete('/api/products/:id', product_Controller.deleteProductById);
+router.delete('/api/products', product_Controller.deleteAllProducts);
 
 module.exports = router;
